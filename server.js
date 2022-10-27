@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 
 const welcome = () => {
-    inquirer.prompt([
+    return inquirer.prompt([
     {
       type: 'list',
       name: 'todo',
@@ -12,14 +12,19 @@ const welcome = () => {
 };
 
 const addEmployee = () => {
-    inquirer.prompt([
+    return inquirer.prompt([
         {
-          type: 'list',
-          name: 'addEmployee',
-          message: 'What would you like to do?',
-          choices: ['View All Employees', 'Add Employee', 'Update Employees Role', 'View All Roles', 'Add Role', 'View All Departments', 'Add Department', 'Quit']
+          type: 'input',
+          name: 'addEmployeeFName',
+          message: 'What is the employees fist name?'
+        },
+        {
+         type: 'input',
+         name: 'addEmployeeLName',
+         message: 'What is the employees last name?'
         }
       ])
 }
 
-welcome();
+welcome()
+    .then(addEmployee);
