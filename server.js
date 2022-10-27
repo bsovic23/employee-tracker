@@ -1,5 +1,12 @@
+// npm
 const inquirer = require('inquirer');
+const mysql = require('mysql2');
+const consoleTable = require('console.table');
 
+// Exported functions from other pages
+const { getDept } = require('./functions');
+
+// Initial start of the program
 const welcome = () => {
     return inquirer.prompt([
     {
@@ -27,4 +34,5 @@ const addEmployee = () => {
 }
 
 welcome()
-    .then(addEmployee);
+    .then(addEmployee)
+    .then(getDept);
