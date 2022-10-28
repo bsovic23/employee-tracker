@@ -6,11 +6,11 @@ VALUES
 ('pulmonology'),
 ('endocrine');
 
-INSERT INTO role (title, salary, department_id)
+INSERT INTO roles (title, salary, department_id)
 VALUES
 ('doctor', 10, 1),
 ('pa', 15, 2),
-('nurse', 13, 1)
+('nurse', 13, 1),
 ('research assistant', 5, 1);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)

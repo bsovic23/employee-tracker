@@ -4,7 +4,7 @@ const mysql = require('mysql2');
 const consoleTable = require('console.table');
 
 // Imported functions from other pages
-const { addEmployee, getDept } = require('./sql-functions');
+const { getDept, getRoles, getEmployees, addEmployee } = require('./sql-functions');
 
 // Initial start of the program
 const welcome = () => {
@@ -18,6 +18,10 @@ const welcome = () => {
   ])
 };
 
+// Constructor Function
 welcome()
     .then(addEmployee)
-    .then(getDept);
+    .then(getDept)
+    .then(getRoles)
+    .then(getEmployees)
+    ;

@@ -17,14 +17,24 @@ const db = mysql.createConnection({
 
 // View all departments - GET
 const getDept = () => {
-    db.query(`SELECT * FROM role`, (err, rows) => {
+    db.query(`SELECT * FROM department`, (err, rows) => {
       console.table(rows);
     });
   };
 
 // View all roles - GET
+const getRoles = () => {
+  db.query(`SELECT * FROM roles`, (err, rows) => {
+    console.table(rows);
+  });
+};
 
 // View all employees - GET
+const getEmployees = () => {
+  db.query(`SELECT * FROM employee`, (err, rows) => {
+    console.table(rows);
+  });
+};
 
 // Add a department - POST
 
@@ -44,14 +54,17 @@ const addEmployee = () => {
          message: 'What is the employees last name?'
         }
       ])
-}
+      .then(newEmployeeInfo => {
+        console.log(newEmployeeInfo);
+      })
+};
 
 // Update an employee role - PUT
 
 module.exports = {
     getDept,
-    //getRoles,
-    //getEmployees,
+    getRoles,
+    getEmployees,
     //addDept,
     //addRole,
     addEmployee
