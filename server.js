@@ -16,12 +16,33 @@ const welcome = () => {
       choices: ['View All Employees', 'Add Employee', 'Update Employees Role', 'View All Roles', 'Add Role', 'View All Departments', 'Add Department', 'Quit']
     }
   ])
+  .then(choice => {
+    console.log(choice);
+
+    if (choice.todo == 'View All Employees') {
+      getEmployees();
+    } else if (choice.todo == 'Add Employee') {
+      addEmployee();
+    } else if (choice.todo == 'Update Employees Role') {
+      console.log('update empl not built yet')
+    } else if (choice.todo == 'View All Roles') {
+      getRoles();
+    } else if (choice.todo == 'Add Role') {
+      console.log('add role not built yet')
+    } else if (choice.todo == 'View All Departments') {
+      getDept();
+    } else if (choice.todo == 'Add Department') {
+      console.log('add dept function not built yet');
+    } else (console.log('Goodbye'));
+  })
+  /*
+  NEED TO INSERT SOME SORT OF CALL BACK OPTION 
+  FOR NEW REQUEST
+
+  LIKE AFTER ANSWER PROMPT AND FUNCTION RUN, ASKS IF 
+  WANT TO DO SOMETHING NEW
+  */
 };
 
-// Constructor Function
-welcome()
-    .then(addEmployee)
-    .then(getDept)
-    .then(getRoles)
-    .then(getEmployees)
-    ;
+// Starts Welcome Program
+welcome();
