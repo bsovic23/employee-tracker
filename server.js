@@ -1,10 +1,10 @@
-// npm
+// npm const
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const consoleTable = require('console.table');
 
-// Exported functions from other pages
-const { getDept } = require('./functions');
+// Imported functions from other pages
+const { addEmployee, getDept } = require('./sql-functions');
 
 // Initial start of the program
 const welcome = () => {
@@ -17,21 +17,6 @@ const welcome = () => {
     }
   ])
 };
-
-const addEmployee = () => {
-    return inquirer.prompt([
-        {
-          type: 'input',
-          name: 'addEmployeeFName',
-          message: 'What is the employees fist name?'
-        },
-        {
-         type: 'input',
-         name: 'addEmployeeLName',
-         message: 'What is the employees last name?'
-        }
-      ])
-}
 
 welcome()
     .then(addEmployee)
