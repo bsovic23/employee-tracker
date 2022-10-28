@@ -18,7 +18,6 @@ const welcome = () => {
   ])
   .then(choice => {
     console.log(choice);
-
     if (choice.todo == 'View All Employees') {
       getEmployees();
     } else if (choice.todo == 'Add Employee') {
@@ -36,11 +35,8 @@ const welcome = () => {
     } else (console.log('Goodbye'));
   })
   /*
-  NEED TO INSERT SOME SORT OF CALL BACK OPTION 
-  FOR NEW REQUEST
-
-  LIKE AFTER ANSWER PROMPT AND FUNCTION RUN, ASKS IF 
-  WANT TO DO SOMETHING NEW
+  INSERT THE FUNCTION FOR welcomeAgain in the 
+  SQL-FUNCTIONS file at the bottom.
   */
 };
 

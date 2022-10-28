@@ -52,14 +52,52 @@ const addEmployee = () => {
          type: 'input',
          name: 'addEmployeeLName',
          message: 'What is the employees last name?'
-        }
+        },
+        {
+          type: 'input',
+          name: 'addEmployeeRole',
+          message: 'What is the employees role id?'
+         },
+         {
+          type: 'input',
+          name: 'addEmployeeManager',
+          message: 'What is the employees manager id?'
+         }
       ])
       .then(newEmployeeInfo => {
         console.log(newEmployeeInfo);
+        // BRIT NEED TO CHANGE THIS TO INCLUDE PARAM AND SQL
+        const sql = 
+        `INSERT INTO employee
+        (first_name, last_name, role_id, manager_id)
+        VALUES (?,?,?,?)`;
+        
+        const params = [
+            newEmployeeInfo.addEmployeeFName,
+            newEmployeeInfo.addEmployeeLName,
+            newEmployeeInfo.addEmployeeRole,
+            newEmployeeInfo.addEmployeeManager 
+        ];
+        
+        console.log(params);
+
+        db.query(sql, params, (err, rows) => {
+          console.table(getEmployees());
+        })
       })
 };
 
 // Update an employee role - PUT
+
+
+// Re answer the prompt 
+const welcomeAgain = () => {
+  /* Insert function code to make a choice yes or no
+  to do more in. If yes back to welcome. If no then ends
+  */
+};
+
+// Exported Functions
 
 module.exports = {
     getDept,
@@ -69,4 +107,5 @@ module.exports = {
     //addRole,
     addEmployee
     //updateEmployee
+    //welcomeAgain
 };
