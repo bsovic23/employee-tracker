@@ -37,8 +37,75 @@ const getEmployees = () => {
 };
 
 // Add a department - POST
+const addDept = () => {
+  return inquirer.prompt([
+      {
+        type: 'input',
+        name: 'addDept',
+        message: 'What is the new department'
+      }
+    ])
+    .then(newDeptInfo => {
+      console.log(newDeptInfo);
+      // BRIT NEED TO CHANGE THIS TO INCLUDE PARAM AND SQL
+      const sql = 
+      `INSERT INTO department
+      (name)
+      VALUES (?)`;
+      
+      const params = [
+        newDeptInfo.addDept,
+      ];
+      
+      console.log(params);
+
+      db.query(sql, params, (err, rows) => {
+        console.table(getDept());
+      })
+    })
+};
+
+
 
 // Add a role - POST
+const addRole = () => {
+  return inquirer.prompt([
+      {
+        type: 'input',
+        name: 'addRole',
+        message: 'What is the new role title?'
+      },
+      {
+       type: 'input',
+       name: 'addRoleSalary',
+       message: 'What is the new role salary?'
+      },
+      {
+        type: 'input',
+        name: 'addRoleDept',
+        message: 'What is the new role department?'
+       }
+    ])
+    .then(newRoleInfo => {
+      console.log(newRoleInfo);
+      const sql = 
+      `INSERT INTO role
+      (addRole, addRoleSalary, addRoleDept)
+      VALUES (?,?,?)`;
+      
+      const params = [
+        newRoleInfo.addRole,
+        newRoleInfo.addRoleSalary,
+        newRoleInfo.addRoleDept,
+      ];
+      
+      console.log(params);
+
+      db.query(sql, params, (err, rows) => {
+        console.table(getRoles());
+      })
+    })
+};
 
 // Add an employee - POST
 const addEmployee = () => {
@@ -103,8 +170,8 @@ module.exports = {
     getDept,
     getRoles,
     getEmployees,
-    //addDept,
-    //addRole,
+    addDept,
+    addRole,
     addEmployee
     //updateEmployee
     //welcomeAgain

@@ -4,7 +4,7 @@ const mysql = require('mysql2');
 const consoleTable = require('console.table');
 
 // Imported functions from other pages
-const { getDept, getRoles, getEmployees, addEmployee } = require('./sql-functions');
+const { getDept, getRoles, getEmployees, addDept, addRole, addEmployee } = require('./sql-functions');
 
 // Initial start of the program
 const welcome = () => {
@@ -27,11 +27,11 @@ const welcome = () => {
     } else if (choice.todo == 'View All Roles') {
       getRoles();
     } else if (choice.todo == 'Add Role') {
-      console.log('add role not built yet')
+      addRole();
     } else if (choice.todo == 'View All Departments') {
       getDept();
     } else if (choice.todo == 'Add Department') {
-      console.log('add dept function not built yet');
+      addDept();
     } else (console.log('Goodbye'));
   })
   /*
