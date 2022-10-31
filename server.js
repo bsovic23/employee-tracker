@@ -4,7 +4,7 @@ const mysql = require('mysql2');
 const consoleTable = require('console.table');
 
 // Imported functions from other pages
-const { getDept, getRoles, getEmployees, addDept, addRole, addEmployee } = require('./sql-functions');
+const { getDept, getRoles, getEmployees, addDept, addRole, addEmployee, updateEmployee } = require('./sql-functions');
 
 // Initial start of the program
 const welcome = () => {
@@ -23,7 +23,7 @@ const welcome = () => {
     } else if (choice.todo == 'Add Employee') {
       addEmployee();
     } else if (choice.todo == 'Update Employees Role') {
-      console.log('update empl not built yet')
+      updateEmployee();
     } else if (choice.todo == 'View All Roles') {
       getRoles();
     } else if (choice.todo == 'Add Role') {
@@ -33,12 +33,25 @@ const welcome = () => {
     } else if (choice.todo == 'Add Department') {
       addDept();
     } else (console.log('Goodbye'));
-  })
+  });
   /*
   INSERT THE FUNCTION FOR welcomeAgain in the 
   SQL-FUNCTIONS file at the bottom.
+
+  DO NOT ADD A .then(welcome()); after the else. it 
+  will just run the program 92340234 times
   */
 };
 
 // Starts Welcome Program
 welcome();
+
+const test = () => {
+  console.log('this works!');
+}
+
+
+module.exports = { 
+  welcome, 
+  test
+};

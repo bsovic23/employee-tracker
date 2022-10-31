@@ -3,6 +3,9 @@ const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const consoleTable = require('console.table');
 
+//Imported functions from other page
+const { welcome, test } = require('./server');
+
 // Connect to database
 const db = mysql.createConnection({
     host: 'localhost',
@@ -62,7 +65,7 @@ const addDept = () => {
       db.query(sql, params, (err, rows) => {
         console.table(getDept());
       })
-    })
+    });
 };
 
 
@@ -151,18 +154,46 @@ const addEmployee = () => {
         db.query(sql, params, (err, rows) => {
           console.table(getEmployees());
         })
-      })
+      });
 };
 
 // Update an employee role - PUT
-
+const updateEmployee = () => {
+  return inquirer.prompt([
+    {
+      type: 'list',
+      name: 'again',
+      message: 'Would you like to do something else?',
+      choices: ['Yes', 'No']
+    }
+  ])
+  .then(choice => {
+    console.log(choice);
+    if (choice.again == 'Yes') {
+      test();
+    } else (console.log('goodbye!'));
+  });
+};
 
 // Re answer the prompt 
+/*
 const welcomeAgain = () => {
-  /* Insert function code to make a choice yes or no
-  to do more in. If yes back to welcome. If no then ends
-  */
+  return inquirer.prompt([
+    {
+      type: 'list',
+      name: 'again',
+      message: 'Would you like to do something else?',
+      choices: ['Yes', 'No']
+    }
+  ])
+  .then(choice => {
+    console.log(choice);
+    if (choice.again == 'Yes') {
+      test();
+    } else (console.log('goodbye!'));
+  });
 };
+*/
 
 // Exported Functions
 
@@ -172,7 +203,7 @@ module.exports = {
     getEmployees,
     addDept,
     addRole,
-    addEmployee
-    //updateEmployee
+    addEmployee,
+    updateEmployee  // Not the real fx tho, just test
     //welcomeAgain
 };
