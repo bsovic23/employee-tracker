@@ -34,24 +34,11 @@ const welcome = () => {
       addDept();
     } else (console.log('Goodbye'));
   });
-  /*
-  INSERT THE FUNCTION FOR welcomeAgain in the 
-  SQL-FUNCTIONS file at the bottom.
-
-  DO NOT ADD A .then(welcome()); after the else. it 
-  will just run the program 92340234 times
-  */
 };
 
 // Starts Welcome Program
 welcome();
 
-const test = () => {
-  console.log('this works!');
-}
-
-
 module.exports = { 
   welcome, 
-  test
 };

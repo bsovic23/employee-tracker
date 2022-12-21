@@ -4,7 +4,7 @@ const mysql = require('mysql2');
 const consoleTable = require('console.table');
 
 //Imported functions from other page
-const { welcome, test } = require('./server');
+const { welcome } = require('./server');
 
 // Connect to database
 const db = mysql.createConnection({
