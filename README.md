@@ -22,4 +22,4 @@ my field in healthcare.
 
 ## Screenshots
 
-![]('assets/pictures/Intro.PNG);
+![](assets/pictures/Intro.PNG)
