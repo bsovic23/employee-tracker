@@ -92,8 +92,8 @@ const addRole = () => {
     .then(newRoleInfo => {
       console.log(newRoleInfo);
       const sql = 
-      `INSERT INTO role
-      (addRole, addRoleSalary, addRoleDept)
+      `INSERT INTO roles
+      (title, salary, department_id)
       VALUES (?,?,?)`;
       
       const params = [
@@ -107,7 +107,7 @@ const addRole = () => {
       db.query(sql, params, (err, rows) => {
         console.table(getRoles());
       })
-    })
+    });
 };
 
 // Add an employee - POST

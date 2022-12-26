@@ -20,25 +20,28 @@ const welcome = () => {
     console.log(choice);
     if (choice.todo == 'View All Employees') {
       getEmployees();
+      welcome();
     } else if (choice.todo == 'Add Employee') {
       addEmployee();
+      welcome();
     } else if (choice.todo == 'Update Employees Role') {
       updateEmployee();
+      welcome();
     } else if (choice.todo == 'View All Roles') {
       getRoles();
+      welcome();
     } else if (choice.todo == 'Add Role') {
       addRole();
+      welcome();
     } else if (choice.todo == 'View All Departments') {
       getDept();
+      welcome();
     } else if (choice.todo == 'Add Department') {
       addDept();
+      welcome();
     } else (console.log('Goodbye'));
   });
 };
 
 // Starts Welcome Program
 welcome();
-
-module.exports = { 
-  welcome, 
-};
