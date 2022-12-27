@@ -13,7 +13,7 @@ This project is a backend node.js project using the Inquierer npm and mysql to c
 
 ## Deployed Application
 
-![](assets/pictures/Employee_Tracker.webm);
+![](assets/pictures/Employee%20Tracker.webm);
 
 ## Future Development
 
