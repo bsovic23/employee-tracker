@@ -13,7 +13,7 @@ This project is a backend node.js project using the Inquierer npm and mysql to c
 
 ## Deployed Application
 
-![]('assets/pictures/Employee_Tracker.webm);
+![](assets/pictures/Employee_Tracker.webm);
 
 ## Future Development
 
@@ -22,4 +22,4 @@ my field in healthcare.
 
 ## Screenshots
 
-![]('assets/pictures/Intro.PNG);
+![](assets/pictures/Intro.PNG)
